@@ -5,6 +5,7 @@ require 'json'
 
 FEED_MAP = JSON.parse(ENV["FEED_MAP"])
 FALLBACK = ENV["FALLBACK_NUMBER"]
+GREETING = ENV["GREETING"]
 puts "Loaded feed map: #{FEED_MAP.inspect}"
 
 def find_on_call_number(number)
@@ -37,7 +38,7 @@ end
 
 post '/voice' do
   twiml_response(params, "Call") do |r, target|
-    r.Say "Your call is being redirected"
+    r.Say GREETING
     r.Dial do |d|
       d.Number target
     end
