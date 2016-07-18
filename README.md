@@ -4,13 +4,13 @@ This is a small TwiML application to route phone calls to the right person.
 
 ## Setup
 
-We deployed this to Heroku, and then pointed it at the iCal feed for our developer on call rota. In the calendar
+We deployed this to Heroku, and then pointed it at the iCal feed for our developer on call rotation. In the calendar
 set the location field on an event to a phone number, and any calls or text messages to the number pointed at this
 will be forwarded. You can also set multiple numbers if you have more than one team.
 
 ```
 heroku create our-on-call
-heroku config:set FEED_MAP='{ "+4412345677": "https://example.org/our/rota.ical" }'
+heroku config:set FEED_MAP='{ "+4412345677": "https://example.org/our/oncall.ical" }'
 git push heroku master
 ```
 
